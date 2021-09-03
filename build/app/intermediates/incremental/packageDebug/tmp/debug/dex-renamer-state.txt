@@ -1,0 +1,4 @@
+#Fri Sep 03 17:34:53 CEST 2021
+base.0=/Users/leandroacevedo/Desktop/gramotone_tasks/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
