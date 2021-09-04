@@ -45,7 +45,7 @@ class _IntroPageState extends State<IntroPage> {
               SizedBox(
                 height: 120,
               ),
-               Text(
+              Text(
                 titleMainPage,
                 style: TextStyle(
                   color: Colors.white,

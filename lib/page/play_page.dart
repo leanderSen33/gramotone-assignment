@@ -65,7 +65,6 @@ class _PlayPageState extends State<PlayPage> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Video Demo',
       home: SafeArea(
         child: Scaffold(
           appBar: appBar,
@@ -87,8 +86,7 @@ class _PlayPageState extends State<PlayPage> {
                               appBar.preferredSize.height -
                               MediaQuery.of(context).padding.top) *
                           0.50,
-                      child: _controller1 != null &&
-                              _controller1.value.isInitialized
+                      child: _controller1.value.isInitialized
                           ? AspectRatio(
                               aspectRatio: _controller1.value.aspectRatio,
                               child: VideoPlayer(_controller1),
@@ -96,18 +94,20 @@ class _PlayPageState extends State<PlayPage> {
                           : CircularProgressIndicator(),
                     ),
                   ),
-                  Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.50,
-                    child:
-                        _controller1 != null && _controller2.value.isInitialized
-                            ? AspectRatio(
-                                aspectRatio: _controller2.value.aspectRatio,
-                                child: VideoPlayer(_controller2),
-                              )
-                            : CircularProgressIndicator(),
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                      height: (MediaQuery.of(context).size.height -
+                              appBar.preferredSize.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.50,
+                      child: _controller2.value.isInitialized
+                          ? AspectRatio(
+                              aspectRatio: _controller2.value.aspectRatio,
+                              child: VideoPlayer(_controller2),
+                            )
+                          : CircularProgressIndicator(),
+                    ),
                   ),
                   Positioned(
                     top: (MediaQuery.of(context).size.height -
