@@ -1,4 +1,4 @@
-#Sat Sep 04 20:15:11 CEST 2021
+#Sun Sep 05 22:03:39 CEST 2021
 base.0=/Users/leandroacevedo/vsCodeProjects/GRAMOTONE/gramotone_assignment/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

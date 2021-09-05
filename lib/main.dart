@@ -23,8 +23,8 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
-  final String videoAcordion = 'videos/jana_acordion.mp4';
-  final String videoGuitar = 'videos/leandro_guitar.mp4';
+  final String videoAcordion = 'videos/accordion.mp4';
+  final String videoGuitar = 'videos/guitar.mp4';
   final String videoDrums = 'videos/drums.mp4';
   final String taskA = 'Task A';
   final String taskB = 'Task B';

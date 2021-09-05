@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'dart:async';
 
 import '../main.dart';
 
@@ -19,17 +20,24 @@ class _PlayPageState extends State<PlayPage> {
   late VideoPlayerController _controller1;
   late VideoPlayerController _controller2;
 
+  Future sleep1() {
+    return new Future.delayed(const Duration(milliseconds: 700), () => "1");
+  }
+
   @override
   void initState() {
     _controller1 = VideoPlayerController.asset(
       widget.video1,
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     )
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized,
-        //even before the play button has been pressed.
-        setState(() {});
-      })
+      ..initialize().then(
+        (_) async {
+          // Ensure the first frame is shown after the video is initialized,
+          //even before the play button has been pressed.
+          await sleep1();
+          setState(() {});
+        },
+      )
       ..setLooping(true);
 
     _controller2 = VideoPlayerController.asset(
@@ -38,9 +46,12 @@ class _PlayPageState extends State<PlayPage> {
           VideoPlayerOptions(mixWithOthers: true), // MixWithOthers makes
       // possible to play the two videos in parallel at the same time.
     )
-      ..initialize().then((_) {
-        setState(() {});
-      })
+      ..initialize().then(
+        (_) async {
+          await sleep1();
+          setState(() {});
+        },
+      )
       ..setLooping(true);
 
     super.initState();
@@ -65,6 +76,12 @@ class _PlayPageState extends State<PlayPage> {
       title: Text(widget.appBarTitle),
     );
 
+    var availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+
+    var availableWidth = MediaQuery.of(context).size.width;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -72,60 +89,53 @@ class _PlayPageState extends State<PlayPage> {
         body: Center(
           child: Container(
             color: Color(0xff2c3030),
-            height: MediaQuery.of(context).size.height -
-                appBar.preferredSize.height -
-                MediaQuery.of(context).padding.top,
-            width: MediaQuery.of(context).size.width,
+            height: availableHeight,
+            width: availableWidth,
             child: Stack(
               alignment: Alignment.bottomCenter,
               clipBehavior: Clip.none,
               children: <Widget>[
-                Positioned(
-                  top: 0,
-                  child: Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.50,
-                    child: _controller1.value.isInitialized
-                        ? AspectRatio(
-                            aspectRatio: _controller1.value.aspectRatio,
-                            child: VideoPlayer(_controller1),
-                          )
-                        : CircularProgressIndicator(),
-                  ),
+                Container(
+                  child: _controller1.value.isInitialized
+                      ? Positioned(
+                          top: 0,
+                          child: Container(
+                            height: availableHeight * 0.50,
+                            child: AspectRatio(
+                              aspectRatio: _controller1.value.aspectRatio,
+                              child: VideoPlayer(_controller1),
+                            ),
+                          ),
+                        )
+                      : Container(),
+                ),
+                Container(
+                  child: _controller2.value.isInitialized
+                      ? Positioned(
+                          bottom: 0,
+                          child: Container(
+                            height: availableHeight * 0.50,
+                            child: AspectRatio(
+                              aspectRatio: _controller2.value.aspectRatio,
+                              child: VideoPlayer(_controller2),
+                            ),
+                          ),
+                        )
+                      : Container(),
                 ),
                 Positioned(
-                  bottom: 0,
-                  child: Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.50,
-                    child: _controller2.value.isInitialized
-                        ? AspectRatio(
-                            aspectRatio: _controller2.value.aspectRatio,
-                            child: VideoPlayer(_controller2),
-                          )
-                        : CircularProgressIndicator(),
-                  ),
-                ),
-                Positioned(
-                  top: (MediaQuery.of(context).size.height -
-                          appBar.preferredSize.height -
-                          MediaQuery.of(context).padding.top -
-                          50) /
-                      2,
-                  width: MediaQuery.of(context).size.width / 2,
+                  top: (availableHeight - 70) / 2,
+                  width: availableWidth / 2,
                   child: ConstrainedBox(
-                    constraints: BoxConstraints.tightFor(width: 50, height: 50),
+                    constraints: BoxConstraints.tightFor(width: 70, height: 70),
                     child: ElevatedButton(
                       child: Icon(
                         _controller1.value.isPlaying ||
                                 _controller2.value.isPlaying
                             ? Icons.pause
                             : Icons.play_arrow,
-                        color: Colors.black,
+                        color: Color(0xff2c3030),
+                        size: 40,
                       ),
                       onPressed: () {
                         setState(() {
@@ -140,6 +150,20 @@ class _PlayPageState extends State<PlayPage> {
                     ),
                   ),
                 ),
+                _controller1.value.isInitialized &&
+                        _controller2.value.isInitialized
+                    ? Container()
+                    : Positioned(
+                        top: (availableHeight - 70) / 2,
+                        //width: availableWidth / 2,
+                        child: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: CircularProgressIndicator(
+                            color: Color(0xfff3b840),
+                          ),
+                        ),
+                      ),
               ],
             ),
           ),

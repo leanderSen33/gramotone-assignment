@@ -86,7 +86,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		TkxgoHHWU/BfQEO/FBtN2OH/M3Q=
+		9jXcV6v+BmG/B4QfvKVqoiGC5Lk=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		sWlzz1LArfIFRyh55bd4P4zzYH4=
+		n7bgUsr/8rpGjNzbfes+nvemf8w=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		tyLAG7aE6074buAIrheMUofFTk8=
+		2zra+kuuthXCzw0CyWJpH8E7T6c=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib</key>
 		<data>
-		EcYNEu1Q4t5YFaMxElL4ftb8Fk0=
+		RQCSpsGbHINypQShmkTc1jwO5Ic=
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		eGDym25iImgl3lLf/1O7jMmk2R4=
+		wr51HEgRNjASJn1Db5s1uqaYsGQ=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		NCqor8x61VRgKFVM7co0JwzpZ44=
+		5eYCuKzsI08Ar3XAwm1b97WaEY0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		u0aNYijhGOjQW3o4uWjZTKlduSo=
+		vxbEucpPsC/KUtgWcC1wrQjGagE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -142,11 +142,15 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		lmg8XYtLd5sioBjFohrXl1wugtA=
+		+BfrOR1rDmJLagV2+V/j1agKzWY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/videos/accordion.mp4</key>
+		<data>
+		D+bPn6d53j6R6aP47NzLoNYsnS0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/videos/conga.mp4</key>
 		<data>
@@ -156,13 +160,9 @@
 		<data>
 		GObF/UPO3sQ+9261ifBtmFjrkAY=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/videos/jana_acordion.mp4</key>
+		<key>Frameworks/App.framework/flutter_assets/videos/guitar.mp4</key>
 		<data>
-		tC45RLRrFIc2JJy9R8fQwoDYqG4=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/videos/leandro_guitar.mp4</key>
-		<data>
-		pTgL2dLKl1iUtWoFv4AJ03vy/90=
+		LItnDMPmCVP6dW7RWjUj2WH3SE4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -318,11 +318,11 @@
 		</data>
 		<key>Frameworks/video_player.framework/video_player</key>
 		<data>
-		/3phnOpkJak2dwc+WScXLosF7DI=
+		X3pVvngHQCIqXzwiqdBu5CuUXws=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vJCjdTkS53oQwST12Qn0RKueEWA=
+		CE4fJQXUsFO2FSJrX1ftldXMsgk=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -555,11 +555,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TkxgoHHWU/BfQEO/FBtN2OH/M3Q=
+			9jXcV6v+BmG/B4QfvKVqoiGC5Lk=
 			</data>
 			<key>hash2</key>
 			<data>
-			+wXShy7qc+DkD+Vxtyk/g88ByQAhQyLqio/eQ2lbbfY=
+			xAYiXToJghCejQA3xBTwwv6sCuRr0ZGWARL394/7P50=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -577,22 +577,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sWlzz1LArfIFRyh55bd4P4zzYH4=
+			n7bgUsr/8rpGjNzbfes+nvemf8w=
 			</data>
 			<key>hash2</key>
 			<data>
-			EDIuM7jo0spLuSm9HmQHZ2fOCwJyQxV6bJ+We3BBDug=
+			dW7Mka/XogpUQe4+TMTo2HxwMKT8VKJMLu/CbNJ0cUw=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tyLAG7aE6074buAIrheMUofFTk8=
+			2zra+kuuthXCzw0CyWJpH8E7T6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			9ocoMbSz42pCAcLnisTzlI5p2hMuk9TsxaxSo+Wn5kE=
+			fm3ZiSa73x4W8G6YTqgAYyrFNWso0CuAUzvznXkuOL4=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -610,22 +610,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EcYNEu1Q4t5YFaMxElL4ftb8Fk0=
+			RQCSpsGbHINypQShmkTc1jwO5Ic=
 			</data>
 			<key>hash2</key>
 			<data>
-			uCrpbETx3KmKPzvNPhbY/tnDhRnhtkyegLp/2k/OtHM=
+			akfVcRvbc/Kx2FrcbnCR7r21On6w/rwnahF4oOG8Eq0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/App</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eGDym25iImgl3lLf/1O7jMmk2R4=
+			wr51HEgRNjASJn1Db5s1uqaYsGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZfZV0GWMQQu4ToSuRA8xgiI5oiZeHUQfGNXATAil8N0=
+			4YDyiaZ8mdWiIZjGLcqlndHQZci2qXh/GKcrgSj18H8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -643,22 +643,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NCqor8x61VRgKFVM7co0JwzpZ44=
+			5eYCuKzsI08Ar3XAwm1b97WaEY0=
 			</data>
 			<key>hash2</key>
 			<data>
-			qPvfcfEnGaka9l0eqes0VyoSq1WBGLcqXeT0L0LzWbk=
+			aGi90TBqjlbHKCrXPIarT0QJuD4Yy9mP4v/ejz6540Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			u0aNYijhGOjQW3o4uWjZTKlduSo=
+			vxbEucpPsC/KUtgWcC1wrQjGagE=
 			</data>
 			<key>hash2</key>
 			<data>
-			l9oaiVPuUVP25IZE5Ui3pbS1NGCatFqR9EEAVEfJYRs=
+			HHHC7WmizTbqKR0rEOAVZSM5OHHVm1MW0i4aW49cthY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -709,11 +709,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lmg8XYtLd5sioBjFohrXl1wugtA=
+			+BfrOR1rDmJLagV2+V/j1agKzWY=
 			</data>
 			<key>hash2</key>
 			<data>
-			mqA7kPTA/VnA+KKBF9wU14s/ftfdqzjX2z/5++qhFAg=
+			okmFiqw8V93n8+OezfJElmppKd7pePwAYBm+Q6gFau0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -725,6 +725,17 @@
 			<key>hash2</key>
 			<data>
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/videos/accordion.mp4</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D+bPn6d53j6R6aP47NzLoNYsnS0=
+			</data>
+			<key>hash2</key>
+			<data>
+			+oYF4vs/gwvocd6n8FzWV3noNMgCQbSC8cDuqmb0XSI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/videos/conga.mp4</key>
@@ -749,26 +760,15 @@
 			z1oMSymYq4XAPkAYO/yJkU9JAXpmaqw/GaLb875HxZ8=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/videos/jana_acordion.mp4</key>
+		<key>Frameworks/App.framework/flutter_assets/videos/guitar.mp4</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tC45RLRrFIc2JJy9R8fQwoDYqG4=
+			LItnDMPmCVP6dW7RWjUj2WH3SE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			cYGRJAJCi6jzCzK3LYtvDK7dZtkXF301AlcAZxAT/Y0=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/videos/leandro_guitar.mp4</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pTgL2dLKl1iUtWoFv4AJ03vy/90=
-			</data>
-			<key>hash2</key>
-			<data>
-			weVqMhNS8PMLG7YTJS5/D97rydTpbv/q4HnqIkm2hdw=
+			EFyV7/rCp+BA0Yf0VURUqiFnNAMhpoVLoe8a/5pfXbE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
@@ -1193,11 +1193,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/3phnOpkJak2dwc+WScXLosF7DI=
+			X3pVvngHQCIqXzwiqdBu5CuUXws=
 			</data>
 			<key>hash2</key>
 			<data>
-			nYOnc7XOhV+y3aKJNcnZpKAZv54ZEXwnGwW6Knd9rB4=
+			omzumWqcBZyXBNmn8mjvB38Z4obnHKq/7bTe2WkkBOs=
 			</data>
 		</dict>
 	</dict>
