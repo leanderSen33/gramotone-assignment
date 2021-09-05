@@ -34,7 +34,9 @@ class _PlayPageState extends State<PlayPage> {
 
     _controller2 = VideoPlayerController.asset(
       widget.video2,
-      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+      videoPlayerOptions:
+          VideoPlayerOptions(mixWithOthers: true), // MixWithOthers makes
+      // possible to play the two videos in parallel at the same time.
     )
       ..initialize().then((_) {
         setState(() {});
@@ -65,83 +67,80 @@ class _PlayPageState extends State<PlayPage> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          appBar: appBar,
-          body: Center(
-            child: Container(
-              color: Colors.black,
-              height: MediaQuery.of(context).size.height -
-                  appBar.preferredSize.height -
-                  MediaQuery.of(context).padding.top,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                clipBehavior: Clip.none,
-                children: <Widget>[
-                  Positioned(
-                    top: 0,
-                    child: Container(
-                      height: (MediaQuery.of(context).size.height -
-                              appBar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
-                          0.50,
-                      child: _controller1.value.isInitialized
-                          ? AspectRatio(
-                              aspectRatio: _controller1.value.aspectRatio,
-                              child: VideoPlayer(_controller1),
-                            )
-                          : CircularProgressIndicator(),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Container(
-                      height: (MediaQuery.of(context).size.height -
-                              appBar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
-                          0.50,
-                      child: _controller2.value.isInitialized
-                          ? AspectRatio(
-                              aspectRatio: _controller2.value.aspectRatio,
-                              child: VideoPlayer(_controller2),
-                            )
-                          : CircularProgressIndicator(),
-                    ),
-                  ),
-                  Positioned(
-                    top: (MediaQuery.of(context).size.height -
+      home: Scaffold(
+        appBar: appBar,
+        body: Center(
+          child: Container(
+            color: Color(0xff2c3030),
+            height: MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                MediaQuery.of(context).padding.top,
+            width: MediaQuery.of(context).size.width,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              clipBehavior: Clip.none,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    height: (MediaQuery.of(context).size.height -
                             appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top -
-                            50) /
-                        2,
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: ConstrainedBox(
-                      constraints:
-                          BoxConstraints.tightFor(width: 50, height: 50),
-                      child: ElevatedButton(
-                        child: Icon(
-                          _controller1.value.isPlaying ||
-                                  _controller2.value.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow,
-                          color: Colors.black,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            togglePlaying();
-                          });
-                        },
-                        style: ElevatedButton.styleFrom(
-                          elevation: 3,
-                          primary: Colors.white.withOpacity(0.7),
-                          shape: CircleBorder(),
-                        ),
+                            MediaQuery.of(context).padding.top) *
+                        0.50,
+                    child: _controller1.value.isInitialized
+                        ? AspectRatio(
+                            aspectRatio: _controller1.value.aspectRatio,
+                            child: VideoPlayer(_controller1),
+                          )
+                        : CircularProgressIndicator(),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    height: (MediaQuery.of(context).size.height -
+                            appBar.preferredSize.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.50,
+                    child: _controller2.value.isInitialized
+                        ? AspectRatio(
+                            aspectRatio: _controller2.value.aspectRatio,
+                            child: VideoPlayer(_controller2),
+                          )
+                        : CircularProgressIndicator(),
+                  ),
+                ),
+                Positioned(
+                  top: (MediaQuery.of(context).size.height -
+                          appBar.preferredSize.height -
+                          MediaQuery.of(context).padding.top -
+                          50) /
+                      2,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.tightFor(width: 50, height: 50),
+                    child: ElevatedButton(
+                      child: Icon(
+                        _controller1.value.isPlaying ||
+                                _controller2.value.isPlaying
+                            ? Icons.pause
+                            : Icons.play_arrow,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          togglePlaying();
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 3,
+                        primary: Colors.white.withOpacity(0.7),
+                        shape: CircleBorder(),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
