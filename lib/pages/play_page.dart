@@ -133,8 +133,8 @@ class _PlayPageState extends State<PlayPage> {
                     : Container(),
               ),
               Positioned(
-                top: (availableHeight - 70) / 2,
-                width: availableWidth / 2,
+                top: (availableHeight - 70) * 0.5,
+                width: availableWidth * 0.5,
                 child: PlayAndPauseButton(
                   controller1: _controller1,
                   controller2: _controller2,
@@ -150,7 +150,6 @@ class _PlayPageState extends State<PlayPage> {
                   ? Container()
                   : Positioned(
                       top: (availableHeight - 70) / 2,
-                      //width: availableWidth / 2,
                       child: SizedBox(
                         height: 70,
                         width: 70,
