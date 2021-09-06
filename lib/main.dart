@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:gramotone_tasks/widget/button.dart';
+import 'package:gramotone_tasks/widgets/task_button.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Set portrait orientation only.
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,20 +21,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class IntroPage extends StatefulWidget {
-  IntroPage({Key? key}) : super(key: key);
-
-  @override
-  _IntroPageState createState() => _IntroPageState();
-}
-
-class _IntroPageState extends State<IntroPage> {
-  final String videoAcordion = 'videos/accordion.mp4';
-  final String videoGuitar = 'videos/guitar.mp4';
-  final String videoDrums = 'videos/drums.mp4';
-  final String taskA = 'Task A';
-  final String taskB = 'Task B';
-  final String titleMainPage = 'gramotone';
+class IntroPage extends StatelessWidget {
+  final videoAcordion = 'videos/accordion.mp4';
+  final videoGuitar = 'videos/guitar.mp4';
+  final videoDrums = 'videos/drums.mp4';
+  final taskA = 'Task A';
+  final taskB = 'Task B';
+  final titleMainPage = 'gramotone';
 
   @override
   Widget build(BuildContext context) {
@@ -58,14 +57,14 @@ class _IntroPageState extends State<IntroPage> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Button(
+                    TaskButton(
                       video1: videoDrums,
                       video2: videoDrums,
                       appBarTitle: taskA,
                       buttonTitle: taskA,
                     ),
                     SizedBox(height: 20),
-                    Button(
+                    TaskButton(
                       video1: videoAcordion,
                       video2: videoGuitar,
                       appBarTitle: taskB,
