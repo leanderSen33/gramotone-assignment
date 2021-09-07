@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gramotone_tasks/widgets/play_and_pause_button.dart';
-import 'package:video_player/video_player.dart';
 import 'dart:async';
 
+import 'package:gramotone_tasks/widgets/play_and_pause_button.dart';
+import 'package:video_player/video_player.dart';
 import '../main.dart';
 
 class PlayPage extends StatefulWidget {
@@ -60,9 +60,12 @@ class _PlayPageState extends State<PlayPage> {
     super.initState();
   }
 
+  var value = false;
+
   @override
   Widget build(BuildContext context) {
     // Store AppBar in a variable so we can access it from anywhere.
+
     final appBar = AppBar(
       backgroundColor: Color(0xfff3b840),
       leading: IconButton(
@@ -77,89 +80,125 @@ class _PlayPageState extends State<PlayPage> {
       ),
       centerTitle: true,
       title: Text(widget.appBarTitle),
+      actions: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Switch(
+                  thumbColor: MaterialStateProperty.all(Colors.white),
+                  trackColor: MaterialStateProperty.all(Color(0xff2c3030)),
+                  value: value,
+                  onChanged: (value) => setState(() => this.value = value),
+                ),
+                Text('Fit Video    '),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
 
-// Substract appBar height and padding to the total height to get the available height.
-    final availableHeight = MediaQuery.of(context).size.height -
-        appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
-// Total availeble width.
-    final availableWidth = MediaQuery.of(context).size.width;
+    final halfWidth = MediaQuery.of(context).size.width * 0.5;
 
-    return Scaffold(
-      appBar: appBar,
-      body: Center(
-        child: Container(
-          color: Color(0xff2c3030),
-          height: availableHeight,
-          width: availableWidth,
-          child: Stack(
-            fit: StackFit.expand,
-            alignment: Alignment.bottomCenter,
-            clipBehavior: Clip.none,
-            children: <Widget>[
-              Container(
-                // Check if the first video is inizialized, if true, show the first frame.
-                // If not, show an empy cotainer.
-                child: _controller1.value.isInitialized
-                    ? Positioned(
-                        top: 0,
-                        child: Container(
-                          height:
-                              availableHeight * 0.50, // take half of the screen
-                          child: AspectRatio(
-                            aspectRatio: _controller1.value.aspectRatio,
-                            child: VideoPlayer(_controller1),
-                          ),
-                        ),
-                      )
-                    : Container(),
-              ),
-              Container(
-                // Check if the second video is inizialized, if true, show the first frame.
-                // If not, show an empy cotainer.
-                child: _controller2.value.isInitialized
-                    ? Positioned(
-                        bottom: 0,
-                        child: Container(
-                          height:
-                              availableHeight * 0.50, // take half of the screen
-                          child: AspectRatio(
-                            aspectRatio: _controller2.value.aspectRatio,
-                            child: VideoPlayer(_controller2),
-                          ),
-                        ),
-                      )
-                    : Container(),
-              ),
-              Positioned(
-                top: (availableHeight - 70) * 0.5,
-                width: availableWidth * 0.5,
-                child: PlayAndPauseButton(
-                  controller1: _controller1,
-                  controller2: _controller2,
-                  setState: () {
-                    setState(() {
-                      togglePlaying();
-                    });
-                  },
+    final halfHeight = (MediaQuery.of(context).size.height -
+            MediaQuery.of(context).padding.top -
+            kToolbarHeight) *
+        0.5;
+
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    List<Widget> layoutVideos(double halfOfWidth, double halfOfHeight) {
+      return [
+        Expanded(
+          child: Container(
+            height: isLandscape ? halfOfWidth * 2 : halfOfHeight,
+            width: halfOfWidth * 2,
+            child: FittedBox(
+              fit: value ? BoxFit.fill : BoxFit.contain,
+              child: SizedBox(
+                width: _controller1.value.size.width,
+                height: _controller1.value.size.height,
+                child: AspectRatio(
+                  aspectRatio: _controller1.value.aspectRatio,
+                  child: VideoPlayer(_controller1),
                 ),
               ),
-              _controller1.value.isInitialized &&
-                      _controller2.value.isInitialized
-                  ? Container()
-                  : Positioned(
-                      top: (availableHeight - 70) / 2,
-                      child: SizedBox(
-                        height: 70,
-                        width: 70,
-                        child: CircularProgressIndicator(
-                          color: Color(0xfff3b840),
-                        ),
+            ),
+          ),
+        ),
+        Stack(
+          alignment: Alignment.centerRight,
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              height: isLandscape ? halfHeight * 2 : halfHeight,
+              width: isLandscape ? halfOfWidth : halfOfWidth * 2,
+              child: FittedBox(
+                fit: value ? BoxFit.fill : BoxFit.contain,
+                child: SizedBox(
+                  width: _controller2.value.size.width,
+                  height: _controller2.value.size.height,
+                  child: AspectRatio(
+                    aspectRatio: _controller2.value.aspectRatio,
+                    child: VideoPlayer(_controller2),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              //left: -32.5,
+              top: isLandscape ? null : -32.5,
+              right: halfWidth - 35,
+              child: PlayAndPauseButton(
+                controller1: _controller1,
+                controller2: _controller2,
+                setState: () {
+                  setState(() {
+                    togglePlaying();
+                  });
+                },
+              ),
+            ),
+            _controller1.value.isInitialized && _controller2.value.isInitialized
+                ? Container()
+                : Positioned(
+                    //left: -32.5,
+                    top: isLandscape ? null : -32.5,
+                    right: halfWidth - 35,
+                    child: SizedBox(
+                      height: 70,
+                      width: 70,
+                      child: CircularProgressIndicator(
+                        color: Color(0xfff3b840),
                       ),
                     ),
-            ],
-          ),
+                  ),
+          ],
+        ),
+      ];
+    }
+
+    return Scaffold(
+      backgroundColor: const Color(0xff2c3030),
+      appBar: appBar,
+      body: Container(
+        child: Builder(
+          builder: (context) {
+            if (isLandscape) {
+              return Row(
+                children: layoutVideos(halfWidth, halfHeight),
+              );
+            } else {
+              return Column(
+                children: layoutVideos(halfWidth, halfHeight),
+              );
+            }
+          },
         ),
       ),
     );

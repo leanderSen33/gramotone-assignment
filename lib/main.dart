@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gramotone_tasks/widgets/task_button.dart';
-import 'package:flutter/services.dart';
 
-void main() {
-  // Set portrait orientation only.
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
-  return runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
